@@ -6,6 +6,15 @@ import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
 const SongCard = ({ song, i }) => {
   const activeSong='Test';
+
+  //the pauseclick function
+  const handlePauseClick =() => {
+
+  }
+
+  const handlePlayClick = () => {
+    
+  }
   
 
  return (
@@ -14,7 +23,11 @@ const SongCard = ({ song, i }) => {
   <div className="relative w-full h-56 group">
     <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex
                     ${activeSong?.title === song.title? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
-        <PlayPause />
+        <PlayPause 
+          song={song}
+          handlePause={handlePauseClick}
+          handlePlay={handlePlayClick}
+        />
     </div>
     <img alt="song_img" src={song.images?.background} />
 
