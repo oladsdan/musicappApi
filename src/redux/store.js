@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import playerReducer from './features/playerSlice';
 
-import { shazamCoreApi } from './services/shazamCore';
+import { shazamCoreApi, shazamSongApi } from './services/shazamCore';
 // import { billBoardApi } from './services/BillboardApi';
 // import { sportifyDataApi } from './services/SportifydataApi';
 
@@ -10,6 +10,7 @@ import { shazamCoreApi } from './services/shazamCore';
 export const store = configureStore({
   reducer: {
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
+    [shazamSongApi.reducerPath] : shazamSongApi.reducer,
     // [billBoardApi.reducerPath]: billBoardApi.reducer,
     // [sportifyDataApi.reducerPath]: sportifyDataApi.reducer,
     player: playerReducer,
