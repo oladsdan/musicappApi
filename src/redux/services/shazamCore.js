@@ -49,11 +49,17 @@ export const shazamSongApi= createApi({
         // getSongRelated: builder.query({query: ({ songid}) => `/songs/get-related-artist?id=${songid}`})
         getSongRelated: builder.query({query : ({songid}) => `/songs/list-recommendations?id=${songid}`}),
         getArtistDetails: builder.query({query : (artistId) => `/artist/get-details?id=${artistId}`}),
-        getArtistTopSongs: builder.query({query :(artistId) =>  `/artist/get-top-songs?id=${artistId}`})
+        getArtistTopSongs: builder.query({query :(artistId) =>  `/artist/get-top-songs?id=${artistId}`}),
+        getTopSongsByCountry: builder.query({query : (countrycode) => `/charts/get-top-songs-in-country?country_code=${countrycode}`}),
+        getTopSongsByGenre: builder.query({query: (genreid) => `/charts/get-top-songs-in_world_by_genre?genre=${genreid}` }),
+        getSongsBySearch: builder.query({query: (Searchterm) => `/search?term=${Searchterm}`})
 
     })
 })
-export const { useGetSongDetailsQuery, useGetSongRelatedQuery, useGetArtistDetailsQuery, useGetArtistTopSongsQuery } = shazamSongApi
+
+export const { useGetSongDetailsQuery, useGetSongRelatedQuery, useGetArtistDetailsQuery, useGetArtistTopSongsQuery, 
+    useGetTopSongsByCountryQuery, useGetTopSongsByGenreQuery, useGetSongsBySearchQuery
+ } = shazamSongApi
 
 
 
